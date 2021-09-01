@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ModalScreen from "../Modal";
 
 export function FormField() {
   const [name, setName] = useState("");
@@ -34,7 +35,6 @@ export function FormField() {
 
         <label htmlFor="">Data da Entrega</label>
         <input type="date" onChange={hendlerDate} value={date}/>
-        <button>Lista de Compras</button>
       </div>
 
       <button type="submit">Buscar</button>
@@ -44,6 +44,8 @@ export function FormField() {
         onChange={hendlerSearch}
         value={search}
       />
+
+      <ModalScreen/>
     </div>
   );
 }
