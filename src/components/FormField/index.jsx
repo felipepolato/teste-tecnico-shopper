@@ -4,11 +4,11 @@ import ModalScreen from "../Modal";
 export default function FormField() {
   const [name, setName] = useState("");
   const [search, setSearch] = useState("");
-  const[date, setDate] = useState("");
+  const [date, setDate] = useState("");
 
   console.log(name);
   console.log(search);
-  console.log(date)
+  console.log(date);
 
   const hendlerName = (event) => {
     setName(event.target.value);
@@ -22,7 +22,6 @@ export default function FormField() {
     setDate(event.target.value);
   };
 
-
   return (
     <div>
       <div>
@@ -34,10 +33,10 @@ export default function FormField() {
         />
 
         <label htmlFor="">Data da Entrega</label>
-        <input type="date" onChange={hendlerDate} value={date}/>
+        <input type="date" onChange={hendlerDate} value={date} />
       </div>
 
-      <button type="submit">Buscar</button>
+      <button type="submit"  >Buscar</button>
       <input
         type="text"
         placeholder="Bucar Produto"
@@ -45,7 +44,7 @@ export default function FormField() {
         value={search}
       />
 
-      <ModalScreen/>
+      <ModalScreen />
     </div>
   );
 }
