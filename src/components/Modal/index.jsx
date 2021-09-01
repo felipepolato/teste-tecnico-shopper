@@ -1,6 +1,8 @@
 import React from "react";
-import "./styles.css";
 import Modal from "react-modal";
+import ProductCard from "../ProductCard";
+import "./styles.css";
+
 
 Modal.setAppElement("#root");
 
@@ -27,9 +29,11 @@ export default function ModalScreen() {
         }}
         closeTimeoutMS={500}
       >
+        <button onClick={() => setIsOpen(false)}>Fechar</button>
 
+        <ProductCard/>
 
-        <button onClick={() => setIsOpen(false)}>X</button>
+        <button>Fechar Compra</button>
       </Modal>
     </div>
   );

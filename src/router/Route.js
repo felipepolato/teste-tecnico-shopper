@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import { FormField } from "../components/FormField";
-import { ListProduct } from "../components/ListProduct";
-import { ProductCard } from "../components/ProductCard";
-import { ShoppingCart } from "../components/ShoppingCart";
+import FormField from "../components/FormField";
+import ListProduct from "../components/ListProduct";
+import ProductCard from "../components/ProductCard";
+import ShoppingCart from "../components/ShoppingCart";
 
 export default function Routers() {
   return (

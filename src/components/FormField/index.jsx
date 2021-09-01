@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ModalScreen from "../Modal";
 
-export function FormField() {
+export default function FormField() {
   const [name, setName] = useState("");
   const [search, setSearch] = useState("");
   const[date, setDate] = useState("");
