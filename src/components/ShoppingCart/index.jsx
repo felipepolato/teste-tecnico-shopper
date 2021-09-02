@@ -21,6 +21,7 @@ export default function ShoppingCart() {
   const [compraRealizada, setCompraRealizada] = useState(false);
 
 
+  console.log(products);
 
   const add = (product) => {
     const productosList = products.filter((item) => item.id !== product.id);

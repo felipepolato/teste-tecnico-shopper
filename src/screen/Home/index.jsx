@@ -1,6 +1,7 @@
 import React from "react";
 import FormField from "../../components/FormField";
 import ListProduct from "../../components/ListProduct";
+import ProductCard from "../../components/ProductCard";
 
 export default function Home() {
   return (
@@ -8,6 +9,8 @@ export default function Home() {
       <FormField />
       
       <ListProduct />
+
+      <ProductCard/>
     </div>
   );
 }

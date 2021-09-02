@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 export default function ProductCard() {
+  const [primaryList, setPrimaryList] = useState([]);
   const [list, setList] = useState([
     {
       id: 1,
@@ -17,6 +18,18 @@ export default function ProductCard() {
     },
   ]);
 
+  const add = (product) => {
+    const productosList = list.filter((item) => item.id !== product.id);
+    setList(productosList);
+    setPrimaryList([...primaryList, product]);
+  };
+
+  const delet = (product) => {
+    const productosList = primaryList.filter((item) => item.id !== product.id);
+    setPrimaryList([...list, product]);
+    setPrimaryList(productosList);
+  };
+
   return (
     <div>
       {list &&
@@ -27,8 +40,8 @@ export default function ProductCard() {
                 <img src={item.id} />
                 <span>{item.name}</span>
 
-                <button>-</button>
-                <button>+</button>
+                <button className="delete" onClick={() => delet(item)}>-</button>
+                <button onClick={() => add(item)}>+</button>
               </div>
             </div>
           );
