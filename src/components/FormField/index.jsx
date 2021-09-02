@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import ModalScreen from "../Modal";
 
+//////Style/////////
+import { Container } from "./style";
+
 export default function FormField() {
   const [name, setName] = useState("");
   const [search, setSearch] = useState("");
@@ -23,28 +26,27 @@ export default function FormField() {
   };
 
   return (
-    <div>
-      <div>
-        <input
-          value={name}
-          type="text"
-          placeholder="Nome"
-          onChange={hendlerName}
-        />
+    <Container>
+      <input
+        value={name}
+        type="text"
+        placeholder="Nome"
+        onChange={hendlerName}
+      />
 
-        <label htmlFor="">Data da Entrega</label>
+      <label htmlFor="">
+        Data da Entrega
         <input type="date" onChange={hendlerDate} value={date} />
-      </div>
+      </label>
 
-      <button type="submit"  >Buscar</button>
+      <button type="submit">Buscar</button>
       <input
         type="text"
         placeholder="Bucar Produto"
         onChange={hendlerSearch}
         value={search}
       />
-
       <ModalScreen />
-    </div>
+    </Container>
   );
 }
