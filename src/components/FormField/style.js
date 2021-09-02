@@ -14,9 +14,9 @@ export const Container = styled.div`
     justify-content: center;
     align-items: center;
     border-radius: 0.25rem;
-    width: 20rem;
-    height: 3rem;
-    margin: 1rem;
+    /* width: 20rem; */
+    /* height: 3rem; */
+    /* margin: 1rem; */
   }
 
   input {
