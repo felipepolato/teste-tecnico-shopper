@@ -17,22 +17,23 @@ export default function ListProduct() {
     },
   ]);
 
-
-
-
   return (
-  <div>
-      {list&&list.map((item)=>{
-          return(
-              <div>
-                  <p>{item.id}</p>
-                  <p>{item.name}</p>
-                  <p>{item.price}</p>
-                  <p>{item.qty_stock}</p>
-                  <hr/>
-              </div>
-          )
-      })}
-  </div>
+    <div>
+      {list &&
+        list.map((item) => {
+          return (
+            <div>
+              <p>{item.id}</p>
+              <p>{item.name}</p>
+              <p>{item.price}</p>
+              <p>{item.qty_stock}</p>
+
+              <button>-</button>
+              <button>+</button>
+              <hr />
+            </div>
+          );
+        })}
+    </div>
   );
 }
