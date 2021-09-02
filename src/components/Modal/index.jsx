@@ -1,6 +1,7 @@
 import React from "react";
 import Modal from "react-modal";
 import ProductCard from "../ProductCard";
+import ShoppingCart from "../ShoppingCart";
 import "./styles.css";
 
 
@@ -31,9 +32,8 @@ export default function ModalScreen() {
       >
         <button onClick={() => setIsOpen(false)}>Fechar</button>
 
-        <ProductCard/>
-
-        <button>Fechar Compra</button>
+        {/* <ProductCard/> */}
+        <ShoppingCart/>
       </Modal>
     </div>
   );
