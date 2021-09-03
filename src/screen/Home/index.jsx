@@ -3,14 +3,15 @@ import FormField from "../../components/FormField";
 import ListProduct from "../../components/ListProduct";
 import ProductCard from "../../components/ProductCard";
 
+///style////////////////////////////////
+import { Container } from "./style";
+
 export default function Home() {
   return (
-    <div>
+    <Container>
       <FormField />
-      
-      <ListProduct />
-
-      <ProductCard/>
-    </div>
+      <ProductCard />
+      {/* <ListProduct /> */}
+    </Container>
   );
 }

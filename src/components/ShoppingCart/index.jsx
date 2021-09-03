@@ -1,5 +1,8 @@
 import React, { useState } from "react";
-import "./styles.css";
+// import "./styles.css";
+
+///////Style/////////
+import { Container, Ul, Button, Content } from "./styles";
 
 const getData = () => {
   let data = [];
@@ -19,7 +22,6 @@ export default function ShoppingCart() {
   const [products, setProducts] = useState(getData);
   const [cart, setCart] = useState([]);
   const [compraRealizada, setCompraRealizada] = useState(false);
-
 
   console.log(products);
 
@@ -50,10 +52,10 @@ export default function ShoppingCart() {
   };
 
   return (
-    <div className="App">
-      <div className="product-list">
+    <Container>
+      <Content>
         <h4>Lista de Compras</h4>
-        <ul>
+        <Ul>
           {products.length === 0 && <span>Vazio 🙂</span>}
           {products.map((item) => (
             <li>
@@ -61,18 +63,17 @@ export default function ShoppingCart() {
               <button onClick={() => add(item)}>+</button>
             </li>
           ))}
-        </ul>
-      </div>
-      <div className="cart">
+        </Ul>
+
         <h4>Carrinho</h4>
-        <ul>
+        <Ul>
           {!compraRealizada && cart.length === 0 && <span>Vazio 😑</span>}
           {cart.map((item) => (
             <li>
               <span>{item.description}</span>
-              <button className="delete" onClick={() => delet(item)}>
+              <Button className="delete" onClick={() => delet(item)}>
                 -
-              </button>
+              </Button>
             </li>
           ))}
 
@@ -81,7 +82,7 @@ export default function ShoppingCart() {
               Agradecemos a preferência! <span role="img">🎉</span>
             </p>
           )}
-        </ul>
+        </Ul>
         <div className="detalle">
           {!compraRealizada && (
             <p>
@@ -90,16 +91,16 @@ export default function ShoppingCart() {
             </p>
           )}
           {!compraRealizada && (
-            <button
-              className={cart.length === 0 ? "disabled" : null}
+            <Button
+              // className={cart.length === 0 ? "disabled" : null}
               disabled={cart.length === 0}
               onClick={purchase}
             >
               Comprar
-            </button>
+            </Button>
           )}
         </div>
-      </div>
-    </div>
+      </Content>
+    </Container>
   );
 }
