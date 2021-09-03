@@ -32,7 +32,7 @@ export default function ModalScreen() {
       >
         <button onClick={() => setIsOpen(false)}>Fechar</button>
 
-        {/* <ProductCard/> */}
+      
         <ShoppingCart />
       </Modal>
     </div>

@@ -32,5 +32,6 @@ export const Container = styled.div`
   button {
     margin-left: 1%;
     height: 35px;
+    cursor: pointer;
   }
 `;

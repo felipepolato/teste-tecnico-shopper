@@ -1,5 +1,10 @@
 import React, { useState } from "react";
 
+import Img from "../../img/felipe.jpg";
+
+//////style///////////
+import { Container, Content } from "./styles";
+
 export default function ProductCard() {
   const [primaryList, setPrimaryList] = useState([]);
   const [list, setList] = useState([
@@ -31,21 +36,25 @@ export default function ProductCard() {
   };
 
   return (
-    <div>
+    <Container>
       {list &&
         list.map((item) => {
           return (
-            <div>
+            <Content>
+                <img src={Img} />
               <div>
-                <img src={item.id} />
                 <span>{item.name}</span>
-
-                <button className="delete" onClick={() => delet(item)}>-</button>
-                <button onClick={() => add(item)}>+</button>
+                <div>
+                  <button className="delete" onClick={() => delet(item)}>
+                    -
+                  </button>
+                    {item.qty_stock}
+                  <button onClick={() => add(item)}>+</button>
+                </div>
               </div>
-            </div>
+            </Content>
           );
         })}
-    </div>
+    </Container>
   );
 }
