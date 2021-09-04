@@ -6,6 +6,8 @@ export const Container = styled.div`
   align-items: center;
   flex-direction: row;
 
+  border: 1px solid red;
+
   /* background: #ccc; */
 
   div {
