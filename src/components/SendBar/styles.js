@@ -7,19 +7,18 @@ export const Container = styled.div`
   flex-direction: column;
   height: 20%;
 
-  border: 1px solid pink;
+  /* border: 1px solid pink; */
 
   background: #f2f2f2;
-  
 
   input {
     height: 30px;
-    border: transparent;
-    background: #ccc;
+    border-radius: 10px;
   }
 
   label {
     padding: 1%;
+    margin: 0.5rem;
   }
 `;
 
@@ -35,8 +34,11 @@ export const BoxBottum = styled.span`
   flex-direction: column;
 
   button {
-    margin-left: 1%;
+    margin-top: 0.5rem;
     height: 35px;
+    background: #23b5a8;
+    border: transparent;
+    border-radius: 0.5rem;
     cursor: pointer;
   }
 `;

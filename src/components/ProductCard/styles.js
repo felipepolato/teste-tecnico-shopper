@@ -39,7 +39,6 @@ export const Content = styled.div`
   p {
     text-align: center;
   }
-
 `;
 
 export const ImgCard = styled.div`
