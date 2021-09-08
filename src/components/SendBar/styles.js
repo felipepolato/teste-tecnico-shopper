@@ -12,6 +12,7 @@ export const Container = styled.div`
   background: #f2f2f2;
 
   input {
+    border: 1px solid #ccc;
     height: 30px;
     border-radius: 10px;
   }
