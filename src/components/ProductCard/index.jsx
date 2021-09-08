@@ -3,7 +3,13 @@ import React, { useState } from "react";
 import Img from "../../img/felipe.jpg";
 
 //////style///////////
-import { Container, Content } from "./styles";
+import {
+  Container,
+  Content,
+  ImgCard,
+  TitleProduct,
+  PriceProduct,
+} from "./styles";
 
 export default function ProductCard() {
   const [primaryList, setPrimaryList] = useState([]);
@@ -18,7 +24,7 @@ export default function ProductCard() {
     {
       id: 2,
       name: "Shampoo",
-      price: 10.0,
+      price: 10.15,
       qty_stock: 58,
     },
   ]);
@@ -29,11 +35,11 @@ export default function ProductCard() {
     setPrimaryList([...primaryList, product]);
   };
 
-  const delet = (product) => {
-    const productosList = primaryList.filter((item) => item.id !== product.id);
-    setPrimaryList([...list, product]);
-    setPrimaryList(productosList);
-  };
+  // const delet = (product) => {
+  //   const productosList = primaryList.filter((item) => item.id !== product.id);
+  //   setPrimaryList([...list, product]);
+  //   setPrimaryList(productosList);
+  // };
 
   return (
     <Container>
@@ -41,17 +47,17 @@ export default function ProductCard() {
         list.map((item) => {
           return (
             <Content>
+              <ImgCard>
                 <img src={Img} />
-              <div>
-                <span>{item.name}</span>
-                <div>
-                  <button className="delete" onClick={() => delet(item)}>
-                    -
-                  </button>
-                    {item.qty_stock}
-                  <button onClick={() => add(item)}>+</button>
-                </div>
-              </div>
+              </ImgCard>
+
+              <span>
+                <TitleProduct>{item.name}</TitleProduct>
+                <PriceProduct>Preço R${item.price}</PriceProduct>
+                <p> Quantidade {item.qty_stock}</p>
+              </span>
+
+              <button onClick={() => add(item)}>+</button>
             </Content>
           );
         })}

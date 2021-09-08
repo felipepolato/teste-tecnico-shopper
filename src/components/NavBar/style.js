@@ -6,6 +6,11 @@ export const Container = styled.div`
   align-items: center;
   flex-direction: row;
 
+  /* border: 1px solid red; */
+  height: 6%;
+  margin-top: 10px;
+  margin-left: 90%;
+
   /* background: #ccc; */
 
   div {
@@ -29,8 +34,8 @@ export const Container = styled.div`
   }
 
   button {
-    margin-left: 1%;
-    height: 35px;
+    height: 55px;
+    width: 55px;
     cursor: pointer;
   }
 `;

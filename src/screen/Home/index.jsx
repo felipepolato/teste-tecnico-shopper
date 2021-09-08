@@ -1,17 +1,27 @@
 import React from "react";
-import FormField from "../../components/FormField";
+import NavBar from "../../components/NavBar";
 import ListProduct from "../../components/ListProduct";
+import ModalScreen from "../../components/Modal";
 import ProductCard from "../../components/ProductCard";
+import SandBar from "../../components/SendBar";
 
 ///style////////////////////////////////
-import { Container } from "./style";
+import { Container, Root, Box, BoxSandBar } from "./style";
 
 export default function Home() {
   return (
-    <Container>
-      <FormField />
-      <ProductCard />
-      {/* <ListProduct /> */}
-    </Container>
+    <Root>
+      <Container>
+        <NavBar />
+        <Box>
+          <BoxSandBar>
+            <SandBar />
+          </BoxSandBar>
+          <div>
+            <ProductCard />
+          </div>
+        </Box>
+      </Container>
+    </Root>
   );
 }
