@@ -5,7 +5,9 @@ export const Container = styled.div`
   justify-content: center;
   /* align-items: center; */
   flex-direction: row;
+  flex-wrap: wrap;
   color: red;
+  font-size: 12px;
   font-weight: bold;
 `;
 
