@@ -1,22 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function ListProduct() {
-  const [list, setList] = useState([
-    {
-      id: 1,
-      name: "AZEITE",
-      price: 20.49,
-      qty_stock: 158,
-    },
+  const [list, setList] = useState([]);
 
-    {
-      id: 2,
-      name: "Shampoo",
-      price: 10.0,
-      qty_stock: 58,
-    },
-  ]);
+  useEffect(() => {
+    getProducts();
+  }, []);
 
+  const getProducts = () => {
+    console.log("RESPONSE");
+    axios
+      .get("http://localhost:3003/products/")
+      .then((response) => {
+      })
+      .catch((error) => {
+        console.error(error.massege);
+      });
+  };
   return (
     <div>
       {list &&
