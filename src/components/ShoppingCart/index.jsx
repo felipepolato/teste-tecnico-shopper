@@ -43,10 +43,26 @@ export default function ShoppingCart(props) {
       });
   };
 
-  const filteredList = list.filter((item) => {
-    
-    return Object.keys(props.cart).some((id) => {
+  const buyProducts = () => {
+    Object.entries(props.cart).map((item) => {
+      const body = {
+        id: item[0],
+        qty: item[1],
+      };
 
+      axios
+        .put("http://localhost:3003/products/", body)
+        .then((res) => {
+        })
+        .catch((error) => {
+          console.error(error.massege);
+        });
+      });
+      props.setCart({});
+  };
+
+  const filteredList = list.filter((item) => {
+    return Object.keys(props.cart).some((id) => {
       if (!props.cart[id]) {
         return false;
       }
@@ -95,7 +111,9 @@ export default function ShoppingCart(props) {
             <strong>Total: $</strong>
           </p>
 
-          <Button disabled={filteredList.length === 0}>Comprar</Button>
+          <Button disabled={filteredList.length === 0} onClick={buyProducts}>
+            Comprar
+          </Button>
         </div>
       </Content>
     </Container>
