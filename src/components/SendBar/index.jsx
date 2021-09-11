@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 
 //////Style/////////
-import { Container, Content, FormField, BoxBottum } from "./styles";
-export default function SandBar() {
+import { Container, Content, FormField, BoxButton } from "./styles";
+
+export default function SendBar() {
   const [name, setName] = useState("");
   const [search, setSearch] = useState("");
   const [date, setDate] = useState("");
@@ -38,7 +39,7 @@ export default function SandBar() {
         <input type="date" onChange={hendlerDate} value={date} />
       </FormField>
 
-      <BoxBottum>
+      <BoxButton>
         <input
           type="text"
           placeholder="Bucar Produto"
@@ -47,7 +48,7 @@ export default function SandBar() {
         />
 
         <button type="submit">Buscar</button>
-      </BoxBottum>
+      </BoxButton>
     </Container>
   );
 }

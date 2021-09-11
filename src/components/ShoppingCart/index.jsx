@@ -1,104 +1,101 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+
 // import "./styles.css";
 
 ///////Style/////////
 import { Container, Ul, Button, Content } from "./styles";
 
-const getData = () => {
-  let data = [];
-
-  for (let i = 0; i < 10; i++) {
-    data.push({
-      id: i,
-      description: `producto-${i}`,
-      precio: i * 2,
-    });
-  }
-
-  return data;
-};
-
-export default function ShoppingCart() {
-  const [products, setProducts] = useState(getData);
-  const [cart, setCart] = useState([]);
+export default function ShoppingCart(props) {
   const [compraRealizada, setCompraRealizada] = useState(false);
+  const [list, setList] = useState([]);
 
-  console.log(products);
+  useEffect(() => {
+    getProducts();
+  }, []);
 
-  const add = (product) => {
-    const productosList = products.filter((item) => item.id !== product.id);
-    setProducts(productosList);
-    setCart([...cart, product]);
-  };
-
-  const delet = (product) => {
-    const productosList = cart.filter((item) => item.id !== product.id);
-    setProducts([...products, product]);
-    setCart(productosList);
-  };
-
-  const purchase = () => {
-    setProducts(getData());
-    setCart([]);
-    setCompraRealizada(true);
-  };
-
-  const getAll = () => {
-    let total = 0;
-    cart.forEach((item) => {
-      total = total + item.precio;
+  const addItem = (product) => {
+    props.setCart((oldCart) => {
+      return {
+        ...oldCart,
+        [product.id]: oldCart[product.id] ? oldCart[product.id] + 1 : 1,
+      };
     });
-    return total;
   };
+
+  const subItem = (product) => {
+    props.setCart((oldCart) => {
+      return {
+        ...oldCart,
+        [product.id]: oldCart[product.id] ? oldCart[product.id] - 1 : 0,
+      };
+    });
+  };
+
+  const getProducts = () => {
+    axios
+      .get("http://localhost:3003/products/")
+      .then((response) => {
+        setList(response.data);
+      })
+      .catch((error) => {
+        console.error(error.massege);
+      });
+  };
+
+  const filteredList = list.filter((item) => {
+    
+    return Object.keys(props.cart).some((id) => {
+
+      if (!props.cart[id]) {
+        return false;
+      }
+
+      return Number(item.id) === Number(id);
+    });
+  });
+
+  console.log("AQUIIII", filteredList);
 
   return (
     <Container>
       <Content>
         <h4>Lista de Compras</h4>
+
         <Ul>
-          {products.length === 0 && <span>Vazio 🙂</span>}
-          {products.map((item) => (
+          {Object.keys(props.cart).length === 0 && <span>Vazio 🙂</span>}
+          {filteredList.map((item) => (
             <li>
-              <span>{item.description}</span>
-              <button onClick={() => add(item)}>+</button>
+              <span>{item.name}</span>
+              <button onClick={() => addItem(item)}>+</button>
             </li>
           ))}
         </Ul>
 
         <h4>Carrinho</h4>
+
         <Ul>
-          {!compraRealizada && cart.length === 0 && <span>Vazio 😑</span>}
-          {cart.map((item) => (
+          {filteredList.length === 0 && <span>Vazio 😑</span>}
+
+          {filteredList.map((item) => (
             <li>
-              <span>{item.description}</span>
-              <Button className="delete" onClick={() => delet(item)}>
+              <span>{item.name}</span>
+              <Button className="delete" onClick={() => subItem(item)}>
                 -
               </Button>
             </li>
           ))}
 
-          {compraRealizada && (
-            <p>
-              Agradecemos a preferência! <span role="img">🎉</span>
-            </p>
-          )}
+          <p>
+            Agradecemos a preferência! <span role="img">🎉</span>
+          </p>
         </Ul>
         <div className="detalle">
-          {!compraRealizada && (
-            <p>
-              <strong>Total: $</strong>
-              {getAll()}
-            </p>
-          )}
-          {!compraRealizada && (
-            <Button
-              // className={cart.length === 0 ? "disabled" : null}
-              disabled={cart.length === 0}
-              onClick={purchase}
-            >
-              Comprar
-            </Button>
-          )}
+          <p>
+            <strong>Total: $</strong>
+          </p>
+
+          <Button disabled={filteredList.length === 0}>Comprar</Button>
         </div>
       </Content>
     </Container>

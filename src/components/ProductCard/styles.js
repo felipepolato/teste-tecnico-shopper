@@ -28,9 +28,21 @@ export const Content = styled.div`
     box-shadow: 0px 0px 28px 8px rgba(0, 0, 0, 0.23);
   }
 
+  p {
+    text-align: center;
+  }
+`;
+
+export const BoxButton = styled.div`
+
+display: flex;
+justify-content: center;
+align-items: center;
+
+
   button {
     margin-top: 0.5rem;
-    height: 10%;
+    height: 100%;
     width: 100%;
     background: #23b5a8;
     border: transparent;
@@ -38,8 +50,10 @@ export const Content = styled.div`
     cursor: pointer;
   }
 
-  p {
-    text-align: center;
+  span{
+   display: block;
+   margin: 5%;
+
   }
 `;
 

@@ -9,8 +9,7 @@ export const Root = styled.div`
 `;
 
 export const Container = styled.div`
-  width: 70%;
-  height: 100rem;
+  width: 80%;
   display: flex;
   flex-direction: column;
   overflow: auto;
@@ -25,7 +24,7 @@ export const Box = styled.div`
   justify-content: space-between;
 `;
 
-export const BoxSandBar = styled.div`
+export const BoxSendBar = styled.div`
   padding: 16px;
 
   display: flex;

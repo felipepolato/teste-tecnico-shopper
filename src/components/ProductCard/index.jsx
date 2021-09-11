@@ -10,42 +10,70 @@ import {
   ImgCard,
   TitleProduct,
   PriceProduct,
+  BoxButton,
 } from "./styles";
+import NavBar from "../NavBar";
 
 export default function ProductCard() {
   const [primaryList, setPrimaryList] = useState([]);
   const [list, setList] = useState([]);
+  const [newProduct, setNewProduct] = useState({});
+  const [cart, setCart] = useState({});
 
   useEffect(() => {
     getProducts();
   }, []);
 
+  // GET
   const getProducts = () => {
-    console.log("RESPONSE");
     axios
       .get("http://localhost:3003/products/")
       .then((response) => {
-        setList(response.data)
+        setList(response.data);
       })
       .catch((error) => {
         console.error(error.massege);
       });
   };
 
-  const add = (product) => {
-    const productosList = list.filter((item) => item.id !== product.id);
-    setList(productosList);
-    setPrimaryList([...primaryList, product]);
+  // PUT
+  const putProducts = () => {
+    // const body = {
+    //   id,
+    //   qty,
+    // };
+
+    axios
+      .put("http://localhost:3003/products/")
+      .then((response) => {
+        setNewProduct(response.data);
+      })
+      .catch((error) => {
+        console.error(error.massege);
+      });
   };
 
-  // const delet = (product) => {
-  //   const productosList = primaryList.filter((item) => item.id !== product.id);
-  //   setPrimaryList([...list, product]);
-  //   setPrimaryList(productosList);
-  // };
+  const addItem = (product) => {
+    setCart((oldCart) => {
+      return {
+        ...oldCart,
+        [product.id]: oldCart[product.id] ? oldCart[product.id] + 1 : 1,
+      };
+    });
+  };
+
+  const subItem = (product) => {
+    setCart((oldCart) => {
+      return {
+        ...oldCart,
+        [product.id]: oldCart[product.id] ? oldCart[product.id] - 1 : 0,
+      };
+    });
+  };
 
   return (
     <Container>
+      <NavBar cart={cart} setCart={setCart}/>
       {list &&
         list.map((item) => {
           return (
@@ -57,10 +85,15 @@ export default function ProductCard() {
               <span>
                 <TitleProduct>{item.name}</TitleProduct>
                 <PriceProduct>Preço R${item.price}</PriceProduct>
-                <p> Quantidade {item.qty_stock}</p>
               </span>
 
-              <button onClick={() => add(item)}>+</button>
+              <BoxButton>
+                <button onClick={() => subItem(item)}>-</button>
+                <span>
+                  {cart[item.id] ? cart[item.id] : 0}
+                </span>
+                <button onClick={() => addItem(item)}>+</button>
+              </BoxButton>
             </Content>
           );
         })}
