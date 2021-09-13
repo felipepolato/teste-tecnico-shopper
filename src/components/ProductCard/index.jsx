@@ -14,7 +14,7 @@ import {
 } from "./styles";
 import NavBar from "../NavBar";
 
-export default function ProductCard() {
+export default function ProductCard(props) {
   const [primaryList, setPrimaryList] = useState([]);
   const [list, setList] = useState([]);
   const [newProduct, setNewProduct] = useState({});
