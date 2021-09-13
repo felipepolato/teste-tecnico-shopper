@@ -6,7 +6,7 @@ import "./styles.css";
 
 Modal.setAppElement("#root");
 
-export default function ModalScreen() {
+export default function ModalScreen(props) {
   const [modalIsOpen, setIsOpen] = React.useState(false);
 
   return (
@@ -33,7 +33,7 @@ export default function ModalScreen() {
         <button onClick={() => setIsOpen(false)}>Fechar</button>
 
       
-        <ShoppingCart />
+        <ShoppingCart cart={props.cart} setCart={props.setCart}/>
       </Modal>
     </div>
   );

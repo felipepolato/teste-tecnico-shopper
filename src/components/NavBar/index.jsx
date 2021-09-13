@@ -4,10 +4,10 @@ import ModalScreen from "../Modal";
 //////Style/////////
 import { Container, Content } from "./style";
 
-export default function NavBar() {
+export default function NavBar(props) {
   return (
     <Container>
-      <ModalScreen />
+      <ModalScreen cart={props.cart} setCart={props.setCart}/>
     </Container>
   );
 }

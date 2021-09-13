@@ -29,7 +29,7 @@ export const FormField = styled.span`
   flex-direction: column;
 `;
 
-export const BoxBottum = styled.span`
+export const BoxButton = styled.span`
   margin: 2px;
   display: flex;
   flex-direction: column;
