@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-// import "./styles.css";
-
 ///////Style/////////
-import { Container, Ul, Button, Content } from "./styles";
+import { Container, Ul, Button, Content, TitlePrice, BoxUl, BoxCart } from "./styles";
 
 export default function ShoppingCart(props) {
-  const [compraRealizada, setCompraRealizada] = useState(false);
   const [list, setList] = useState([]);
 
   useEffect(() => {
@@ -52,13 +49,12 @@ export default function ShoppingCart(props) {
 
       axios
         .put("http://localhost:3003/products/", body)
-        .then((res) => {
-        })
+        .then((res) => {})
         .catch((error) => {
           console.error(error.massege);
         });
-      });
-      props.setCart({});
+    });
+    props.setCart({});
   };
 
   const filteredList = list.filter((item) => {
@@ -76,46 +72,37 @@ export default function ShoppingCart(props) {
   return (
     <Container>
       <Content>
-        <h4>Lista de Compras</h4>
+        <BoxUl>
+          <Ul>
+            <h4>Lista de Compras</h4>
+            {Object.keys(props.cart).length === 0 && <span>Vazio 🙂</span>}
+            {filteredList.map((item) => (
+              <li>
+                <p>{item.name}:</p>
+                <TitlePrice>{item.price}</TitlePrice>
 
-        <Ul>
-          {Object.keys(props.cart).length === 0 && <span>Vazio 🙂</span>}
-          {filteredList.map((item) => (
-            <li>
-              <span>{item.name}</span>
-              <button onClick={() => addItem(item)}>+</button>
-            </li>
-          ))}
-        </Ul>
+                <Button onClick={() => addItem(item)}>+</Button>
+                <span>{props.cart[item.id] ? props.cart[item.id] : 0}</span>
+                <Button onClick={() => subItem(item)}>-</Button>
+              </li>
+            ))}
+          </Ul>
+        </BoxUl>
 
-        <h4>Carrinho</h4>
-
-        <Ul>
-          {filteredList.length === 0 && <span>Vazio 😑</span>}
-
-          {filteredList.map((item) => (
-            <li>
-              <span>{item.name}</span>
-              <Button className="delete" onClick={() => subItem(item)}>
-                -
-              </Button>
-            </li>
-          ))}
-
+        <BoxCart>
+          <h4>Carrinho</h4>
           <p>
-            Agradecemos a preferência! <span role="img">🎉</span>
-          </p>
-        </Ul>
-        <div className="detalle">
-          <p>
-            <strong>Total: $</strong>
+            <strong>Total: R$</strong>
           </p>
 
           <Button disabled={filteredList.length === 0} onClick={buyProducts}>
             Comprar
           </Button>
-        </div>
+        </BoxCart>
       </Content>
+      <p>
+        Agradecemos a preferência! <span role="img">🎉</span>
+      </p>
     </Container>
   );
 }

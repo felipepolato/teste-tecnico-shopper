@@ -34,11 +34,9 @@ export const Content = styled.div`
 `;
 
 export const BoxButton = styled.div`
-
-display: flex;
-justify-content: center;
-align-items: center;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   button {
     margin-top: 0.5rem;
@@ -50,10 +48,9 @@ align-items: center;
     cursor: pointer;
   }
 
-  span{
-   display: block;
-   margin: 5%;
-
+  span {
+    display: block;
+    margin: 5%;
   }
 `;
 

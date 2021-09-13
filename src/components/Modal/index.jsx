@@ -10,7 +10,7 @@ export default function ModalScreen(props) {
   const [modalIsOpen, setIsOpen] = React.useState(false);
 
   return (
-    <div>
+    <div className="container-modal">
       <button className="lista" onClick={() => setIsOpen(true)}>
         Lista
       </button>
@@ -30,10 +30,13 @@ export default function ModalScreen(props) {
         }}
         closeTimeoutMS={500}
       >
-        <button onClick={() => setIsOpen(false)}>Fechar</button>
+        <div className="container-button">
+          <button className="button" onClick={() => setIsOpen(false)}>
+            X
+          </button>
+        </div>
 
-      
-        <ShoppingCart cart={props.cart} setCart={props.setCart}/>
+        <ShoppingCart cart={props.cart} setCart={props.setCart} />
       </Modal>
     </div>
   );
