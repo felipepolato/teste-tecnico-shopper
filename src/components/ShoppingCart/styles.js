@@ -9,13 +9,15 @@ export const Container = styled.div`
 
   input {
     border: 1px solid #ccc;
-    height: 30px;
+    height: 35px;
     border-radius: 10px;
+    font-weight: bold;
   }
 
   label {
     padding: 1%;
     margin: 0.5rem;
+    font-size: 16px;
   }
 `;
 
@@ -53,7 +55,6 @@ export const Ul = styled.ul`
   border: 1px solid #ccc;
   padding: 10px;
   border-radius: 5px;
-
   height: 50%;
 
   ul li ~ li {
@@ -64,33 +65,29 @@ export const Ul = styled.ul`
   ul li {
     display: flex;
     justify-content: space-around;
+    
     padding: 5px;
     align-items: center;
     overflow: auto;
     height: 50%;
   }
 
-  ul li:nth-child(odd) {
-    /* background:red; */
-  }
-
-  ul li span {
-    margin-right: 20px;
-  }
-
   span {
     padding: 5px;
     font-weight: bold;
+    font-size: 1rem;
   }
 
   p {
     margin-bottom: 0.5rem;
     font-size: 1rem;
+    font-weight: bold;
   }
 `;
 
 export const TitlePrice = styled.p`
   color: red;
+  font-weight: bold;
   font-weight: bold;
 `;
 
@@ -107,4 +104,10 @@ export const FormField = styled.form`
   margin: 2px;
   display: flex;
   flex-direction: column;
+`;
+
+export const TitlePreference = styled.p`
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 150px;
 `;

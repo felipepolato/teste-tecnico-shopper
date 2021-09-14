@@ -66,13 +66,15 @@ export default function ProductCard(props) {
   return (
     <Container>
       <BoxButton>
-        <label>Buscar Produto</label>
+        <label>Buscar Produto
+
         <input
           type="text"
           placeholder="Digite Aqui!"
           onChange={handlerSearch}
           value={search}
         />
+        </label>
       </BoxButton>
 
       <NavBar cart={cart} setCart={setCart} />

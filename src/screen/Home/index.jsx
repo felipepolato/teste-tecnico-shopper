@@ -11,7 +11,6 @@ export default function Home() {
   return (
     <Root>
       <Container>
-        {/* <NavBar /> */}
         <Box>
           <ProductCard />
         </Box>

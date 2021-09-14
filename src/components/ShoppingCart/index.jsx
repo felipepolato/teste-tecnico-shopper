@@ -11,6 +11,7 @@ import {
   BoxUl,
   BoxCart,
   FormField,
+  TitlePreference,
 } from "./styles";
 
 export default function ShoppingCart(props) {
@@ -73,7 +74,7 @@ export default function ShoppingCart(props) {
     const bodyCart = {
       name: name,
       date: date,
-      list: shopList
+      list: shopList,
     };
 
     axios
@@ -155,24 +156,24 @@ export default function ShoppingCart(props) {
                   <Button onClick={() => addItem(item)}>+</Button>
                 </li>
               ))}
-            </Ul>
-            <BoxCart>
-              <h4>Carrinho</h4>
-              <TitlePrice>
-                <strong>Total: R$ {Math.round(total * 100) / 100}</strong>
-              </TitlePrice>
+              <BoxCart>
+                <h4>Carrinho</h4>
+                <TitlePrice>
+                  <strong>Total: R$ {Math.round(total * 100) / 100}</strong>
+                </TitlePrice>
 
-              <Button disabled={filteredList.length === 0} type="submit">
-                Comprar
-              </Button>
-            </BoxCart>
+                <Button disabled={filteredList.length === 0} type="submit">
+                  Comprar
+                </Button>
+              </BoxCart>
+            </Ul>
           </BoxUl>
         </Content>
       </FormField>
 
-      <p>
+      <TitlePreference>
         Agradecemos a preferência! <span role="img">🎉</span>
-      </p>
+      </TitlePreference>
     </Container>
   );
 }
