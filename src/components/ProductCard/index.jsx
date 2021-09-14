@@ -15,10 +15,19 @@ import {
 import NavBar from "../NavBar";
 
 export default function ProductCard(props) {
-  const [primaryList, setPrimaryList] = useState([]);
   const [list, setList] = useState([]);
-  const [newProduct, setNewProduct] = useState({});
   const [cart, setCart] = useState({});
+  const [search, setSearch] = useState("");
+
+  console.log(list)
+
+  const handlerSearch = (event) => {
+    setSearch(event.target.value);
+  };
+
+  const searchedItems = list.filter((item) =>
+    item.name.toLowerCase().includes(search.toLowerCase())
+  );
 
   useEffect(() => {
     getProducts();
@@ -30,23 +39,6 @@ export default function ProductCard(props) {
       .get("http://localhost:3003/products/")
       .then((response) => {
         setList(response.data);
-      })
-      .catch((error) => {
-        console.error(error.massege);
-      });
-  };
-
-  // PUT
-  const putProducts = () => {
-    // const body = {
-    //   id,
-    //   qty,
-    // };
-
-    axios
-      .put("http://localhost:3003/products/")
-      .then((response) => {
-        setNewProduct(response.data);
       })
       .catch((error) => {
         console.error(error.massege);
@@ -73,13 +65,25 @@ export default function ProductCard(props) {
 
   return (
     <Container>
-      <NavBar cart={cart} setCart={setCart}/>
+      <BoxButton>
+        <label>Buscar Produto
+
+        <input
+          type="text"
+          placeholder="Digite Aqui!"
+          onChange={handlerSearch}
+          value={search}
+        />
+        </label>
+      </BoxButton>
+
+      <NavBar cart={cart} setCart={setCart} />
       {list &&
-        list.map((item) => {
+        searchedItems.map((item) => {
           return (
             <Content>
               <ImgCard>
-                <img src={Img} />
+                <img src={item.image} />
               </ImgCard>
 
               <span>
@@ -89,9 +93,7 @@ export default function ProductCard(props) {
 
               <BoxButton>
                 <button onClick={() => subItem(item)}>-</button>
-                <span>
-                  {cart[item.id] ? cart[item.id] : 0}
-                </span>
+                <span>{cart[item.id] ? cart[item.id] : 0}</span>
                 <button onClick={() => addItem(item)}>+</button>
               </BoxButton>
             </Content>

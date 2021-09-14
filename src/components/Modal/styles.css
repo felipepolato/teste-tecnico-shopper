@@ -63,12 +63,13 @@
 
 .lista {
   border-radius: 50%;
-  width: 100%;
-  height: 100%;
+  /* width: 100%; */
+  /* height: 100%; */
   background: #23b5a8;
   border: transparent;
-  margin-left: 10%;
   cursor: pointer;
+  margin-top: -2320px;
+  margin-right: 100px;
 }
 
 .container-button {

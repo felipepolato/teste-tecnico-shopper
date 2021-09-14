@@ -6,6 +6,19 @@ export const Container = styled.div`
   align-items: center;
   flex-direction: column;
   font-size: 12px;
+
+  input {
+    border: 1px solid #ccc;
+    height: 35px;
+    border-radius: 10px;
+    font-weight: bold;
+  }
+
+  label {
+    padding: 1%;
+    margin: 0.5rem;
+    font-size: 16px;
+  }
 `;
 
 export const Content = styled.div`
@@ -19,7 +32,6 @@ export const Content = styled.div`
 `;
 
 export const Button = styled.button`
-  /* border: 1px solid #105f58; */
   border: none;
   outline: none;
   font-size: 15px;
@@ -43,7 +55,6 @@ export const Ul = styled.ul`
   border: 1px solid #ccc;
   padding: 10px;
   border-radius: 5px;
-
   height: 50%;
 
   ul li ~ li {
@@ -54,42 +65,49 @@ export const Ul = styled.ul`
   ul li {
     display: flex;
     justify-content: space-around;
+    
     padding: 5px;
     align-items: center;
     overflow: auto;
     height: 50%;
   }
 
-  ul li:nth-child(odd) {
-    /* background:red; */
-  }
-
-  ul li span {
-    margin-right: 20px;
-  }
-
   span {
     padding: 5px;
     font-weight: bold;
+    font-size: 1rem;
   }
 
   p {
     margin-bottom: 0.5rem;
     font-size: 1rem;
+    font-weight: bold;
   }
 `;
 
 export const TitlePrice = styled.p`
   color: red;
   font-weight: bold;
+  font-weight: bold;
 `;
 
 export const BoxUl = styled.div`
-  border: solid 1px red;
   overflow: auto;
   height: 50%;
 `;
 
 export const BoxCart = styled.div`
-  border: solid 1px red;
+  font-size: 16px;
+`;
+
+export const FormField = styled.form`
+  margin: 2px;
+  display: flex;
+  flex-direction: column;
+`;
+
+export const TitlePreference = styled.p`
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 150px;
 `;

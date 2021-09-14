@@ -3,19 +3,31 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   justify-content: center;
-  /* align-items: center; */
   flex-direction: row;
   flex-wrap: wrap;
-  color: red;
+
   font-size: 12px;
   font-weight: bold;
+
+  label {
+    margin-top: 3rem;
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  input {
+    margin-left: 20px;
+    border: 1px solid #ccc;
+    height: 30px;
+    border-radius: 10px;
+  }
 `;
 
 export const Content = styled.div`
   display: flex;
   justify-content: center;
-  /* align-items: center; */
   flex-direction: column;
+
   border-radius: 10px;
   width: 8rem;
   height: 17rem;
@@ -56,7 +68,9 @@ export const BoxButton = styled.div`
 
 export const ImgCard = styled.div`
   padding: 8px;
-
+  width: 80%;
+  height: 50%;
+  
   display: flex;
   justify-content: center;
 `;
