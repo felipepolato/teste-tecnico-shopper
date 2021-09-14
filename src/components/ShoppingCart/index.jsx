@@ -56,7 +56,7 @@ export default function ShoppingCart(props) {
         setList(response.data);
       })
       .catch((error) => {
-        console.error(error.massege);
+        console.error(error.message);
       });
   };
 
@@ -90,13 +90,15 @@ export default function ShoppingCart(props) {
             .put("http://localhost:3003/products/", body)
             .then((res) => {})
             .catch((error) => {
-              console.error(error.massege);
+              const mensagem = error.response.data.message;
+              console.log(mensagem);
+              alert(mensagem);
             });
         });
         props.setCart({});
       })
       .catch((error) => {
-        console.error(error.massege);
+        console.error(error.message);
       });
   };
 

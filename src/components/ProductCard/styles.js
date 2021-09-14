@@ -69,7 +69,7 @@ export const BoxButton = styled.div`
 export const ImgCard = styled.div`
   padding: 8px;
   width: 80%;
-  height: 50%;
+  height: 40%;
   
   display: flex;
   justify-content: center;
