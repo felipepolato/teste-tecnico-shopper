@@ -19,6 +19,8 @@ export default function ProductCard(props) {
   const [cart, setCart] = useState({});
   const [search, setSearch] = useState("");
 
+  console.log(list)
+
   const handlerSearch = (event) => {
     setSearch(event.target.value);
   };
@@ -78,9 +80,9 @@ export default function ProductCard(props) {
         searchedItems.map((item) => {
           return (
             <Content>
-              {/* <ImgCard>
-                <img src={Img} />
-              </ImgCard> */}
+              <ImgCard>
+                <img src={item.image} />
+              </ImgCard>
 
               <span>
                 <TitleProduct>{item.name}</TitleProduct>
