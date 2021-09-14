@@ -1,6 +1,53 @@
-# Getting Started with Create React App
+# Tabela de conteúdos
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<!--ts-->
+
+- [Sobre](#Sobre)
+- [Tabela de Conteudo](#tabela-de-conteudo)
+- [Instalação](#instalacao)
+- [Como usar](#como-usar)
+  - [Pre Requisitos](#pre-requisitos)
+- [Tecnologias](#tecnologias)
+<!--te-->
+
+# <h1 align="center">Teste Tecnico Shopper</h1>
+
+## Descrição do Projeto
+
+<p align="center">
+    Aplicação criada como teste técnico para Shopper. Um exemplo de supermercado online com lista de compras. 
+</p>
+
+<h4 align="center"> 
+	 🚀 Concluido...  🚀 
+</h4>
+
+### Pré-requisitos
+
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
+[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/).
+Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
+
+### 🎲 Rodando o Back End (servidor)
+
+```bash
+# Clone este repositório
+$ git clone <https://github.com/felipepolato/teste-tecnico-shoper.git>
+
+# Acesse a pasta do projeto no terminal/cmd
+$ cd nlw1
+
+# Vá para a pasta server
+$ cd server
+
+# Instale as dependências
+$ npm install
+
+# Execute a aplicação em modo de desenvolvimento
+$ npm run dev:server
+
+# O servidor inciará na porta:3333 - acesse <http://localhost:3333>
+```
 
 ## Available Scripts
 
