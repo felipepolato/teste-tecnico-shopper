@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import ModalScreen from "../Modal";
 
 //////Style/////////
-import { Container, Content } from "./style";
+import { Container} from "./style";
 
 export default function NavBar(props) {
   return (

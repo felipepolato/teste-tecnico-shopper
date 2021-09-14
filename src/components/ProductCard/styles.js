@@ -29,8 +29,8 @@ export const Content = styled.div`
   flex-direction: column;
 
   border-radius: 10px;
-  width: 8rem;
-  height: 17rem;
+  width: 12rem;
+  height: 20rem;
   margin: 2rem;
   transition: 0.5s;
   background: #fff;
@@ -46,12 +46,13 @@ export const Content = styled.div`
 `;
 
 export const BoxButton = styled.div`
+  width: 100%;
+
   display: flex;
   justify-content: center;
   align-items: center;
 
   button {
-    margin-top: 0.5rem;
     height: 100%;
     width: 100%;
     background: #23b5a8;
@@ -68,16 +69,15 @@ export const BoxButton = styled.div`
 
 export const ImgCard = styled.div`
   padding: 8px;
-  width: 80%;
+  width: 75%;
   height: 50%;
-  
+
   display: flex;
   justify-content: center;
 `;
 
 export const TitleProduct = styled.p`
   text-align: center;
-  color: black;
 `;
 
 export const PriceProduct = styled.p`

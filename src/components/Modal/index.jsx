@@ -1,6 +1,5 @@
 import React from "react";
 import Modal from "react-modal";
-import ProductCard from "../ProductCard";
 import ShoppingCart from "../ShoppingCart";
 import "./styles.css";
 
@@ -11,9 +10,12 @@ export default function ModalScreen(props) {
 
   return (
     <div className="container-modal">
-      <button className="lista" onClick={() => setIsOpen(true)}>
-        Lista
-      </button>
+      
+      <div className="modal-button">
+        <button className="lista" onClick={() => setIsOpen(true)}>
+          Lista
+        </button>
+      </div>
 
       <Modal
         isOpen={modalIsOpen}

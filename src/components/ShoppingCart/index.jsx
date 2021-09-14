@@ -56,7 +56,7 @@ export default function ShoppingCart(props) {
         setList(response.data);
       })
       .catch((error) => {
-        console.error(error.massege);
+        console.error(error.response.data.message);
       });
   };
 
@@ -80,7 +80,7 @@ export default function ShoppingCart(props) {
     axios
       .post("http://localhost:3003/cart/", bodyCart)
       .then((res) => {
-        Object.entries(props.cart).map((item) => {
+        Object.entries(props.cart).forEach((item) => {
           const body = {
             id: item[0],
             qty: item[1],
@@ -90,13 +90,14 @@ export default function ShoppingCart(props) {
             .put("http://localhost:3003/products/", body)
             .then((res) => {})
             .catch((error) => {
-              console.error(error.massege);
+              const message = error.response.data.message;
+              alert(message);
             });
         });
         props.setCart({});
       })
       .catch((error) => {
-        console.error(error.massege);
+        console.error(error.response.data.message);
       });
   };
 
@@ -109,8 +110,6 @@ export default function ShoppingCart(props) {
       return Number(item.id) === Number(id);
     });
   });
-
-  console.log("AQUIIII", filteredList);
 
   const total = filteredList.reduce((acc, item) => {
     acc = acc + item.price;
@@ -145,7 +144,7 @@ export default function ShoppingCart(props) {
               <h4>Lista de Compras</h4>
               {Object.keys(props.cart).length === 0 && <span>Vazio 🙂</span>}
               {filteredList.map((item) => (
-                <li>
+                <li key={item.id}>
                   <p>{item.name}:</p>
                   <TitlePrice>{item.price}</TitlePrice>
 

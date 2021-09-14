@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-import Img from "../../img/felipe.jpg";
-
 //////style///////////
 import {
   Container,
@@ -18,8 +16,6 @@ export default function ProductCard(props) {
   const [list, setList] = useState([]);
   const [cart, setCart] = useState({});
   const [search, setSearch] = useState("");
-
-  console.log(list)
 
   const handlerSearch = (event) => {
     setSearch(event.target.value);
@@ -41,7 +37,8 @@ export default function ProductCard(props) {
         setList(response.data);
       })
       .catch((error) => {
-        console.error(error.massege);
+        alert(error.response.data.message)
+        console.error(error.response.data.message);
       });
   };
 
@@ -81,9 +78,9 @@ export default function ProductCard(props) {
       {list &&
         searchedItems.map((item) => {
           return (
-            <Content>
+            <Content key={item.id}>
               <ImgCard>
-                <img src={item.image} />
+                <img src={item.image} alt="Imagem dos produtos"/>
               </ImgCard>
 
               <span>
