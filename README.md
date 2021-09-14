@@ -68,7 +68,7 @@ RESPONSABILIDADE, SEJA EM AÇÃO DE CONTRATO, DELITO OU DE OUTRA FORMA, DECORREN
 FORA DE OU EM CONEXÃO COM O SOFTWARE OU O USO OU OUTRAS NEGOCIAÇÕES NO
 PROGRAMAS.
 
-Feito com heart por Felipe Polato Gonçalves 👋🏽 Entre em contato!
+Feito por Felipe Polato Gonçalves 👋🏽 Entre em contato!
 
 LinkedIn: https://www.linkedin.com/in/felipe-polato/
 GitHub: https://github.com/felipepolato
