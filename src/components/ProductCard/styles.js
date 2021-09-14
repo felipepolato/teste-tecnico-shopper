@@ -6,9 +6,21 @@ export const Container = styled.div`
   /* align-items: center; */
   flex-direction: row;
   flex-wrap: wrap;
-  color: red;
+  /* color: red; */
   font-size: 12px;
   font-weight: bold;
+
+  input {
+    margin-top: 5rem;
+    border: 1px solid #ccc;
+    height: 30px;
+    border-radius: 10px;
+  }
+
+  label {
+    padding: 1%;
+    margin: 0.5rem;
+  }
 `;
 
 export const Content = styled.div`

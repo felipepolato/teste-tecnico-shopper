@@ -6,6 +6,17 @@ export const Container = styled.div`
   align-items: center;
   flex-direction: column;
   font-size: 12px;
+
+  input {
+    border: 1px solid #ccc;
+    height: 30px;
+    border-radius: 10px;
+  }
+
+  label {
+    padding: 1%;
+    margin: 0.5rem;
+  }
 `;
 
 export const Content = styled.div`
@@ -19,7 +30,6 @@ export const Content = styled.div`
 `;
 
 export const Button = styled.button`
-  /* border: 1px solid #105f58; */
   border: none;
   outline: none;
   font-size: 15px;
@@ -85,11 +95,16 @@ export const TitlePrice = styled.p`
 `;
 
 export const BoxUl = styled.div`
-  border: solid 1px red;
   overflow: auto;
   height: 50%;
 `;
 
 export const BoxCart = styled.div`
-  border: solid 1px red;
+  font-size: 16px;
+`;
+
+export const FormField = styled.form`
+  margin: 2px;
+  display: flex;
+  flex-direction: column;
 `;
