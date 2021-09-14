@@ -28,14 +28,14 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
 [Git](https://git-scm.com), [Node.js](https://nodejs.org/en/).
 Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
 
-### 🎲 Rodando o Back End (servidor)
+### 🎲 Rodando o Front End (servidor)
 
 ```bash
 # Clone este repositório
-$ git clone <https://github.com/felipepolato/back-shoper.git>
+$ git clone <https://github.com/felipepolato/teste-tecnico-shoper.git>
 
 # Acesse a pasta do projeto no terminal/cmd
-$ cd back-shoper
+$ cd teste-tecnico-shoper
 
 # Vá para a pasta server
 $ cd server
@@ -44,9 +44,9 @@ $ cd server
 $ npm install
 
 # Execute a aplicação em modo de desenvolvimento
-$ npm run dev:server
+$ npm start
 
-# O servidor inciará na porta:3003 - acesse <http://localhost:3003>
+# O servidor inciará na porta:3000 - acesse <http://localhost:3000>
 ```
 
 ## Available Scripts
